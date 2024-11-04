@@ -24,7 +24,7 @@ public class Main {
             bIndex[i] = i;
         }
         Arrays.sort(a);
-        //bIndex b 크기 순으로 인덱스 저장
+        //bIndex : b값 내림차순 순서에 해당하는 인덱스값 저장
         Arrays.sort(bIndex, (i, j) -> b[j] - b[i]);
 
         int result = 0;
