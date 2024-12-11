@@ -56,9 +56,9 @@ def get_data(user_repo):
 
              # README.md 링크만 추출
             if "README.md" in item['path']:
-                links.add(f"https://github.com/{user_repo}/blob/main/{item['path']}")
+                links.append(f"https://github.com/{user_repo}/blob/main/{item['path']}")
             else:
-                links.add(f"https://github.com/{user_repo}/blob/main/{item['path']}")  # 다른 파일이 있다면 그대로 추가
+                links.append(f"https://github.com/{user_repo}/blob/main/{item['path']}")  # 다른 파일이 있다면 그대로 추가
 
     return sites, difficulties, problems, commit_times, links
 
