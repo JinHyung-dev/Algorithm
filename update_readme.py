@@ -23,6 +23,7 @@ def get_data(user_repo):
     difficulties = []
     problems = []
     commit_times = []
+    links = []
 
     # 파일 경로에서 사이트, 난이도, 문제번호/이름 추출
     for item in response_data:
@@ -45,10 +46,13 @@ def get_data(user_repo):
             else:
                 commit_times.append(current_time)  # 커밋이 없으면 현재 시간 사용
 
-    return sites, difficulties, problems, commit_times
+            # 각 문제에 대한 링크 추가
+            links.append(f"https://github.com/{user_repo}/blob/main/{item['path']}")
+
+    return sites, difficulties, problems, commit_times, links
 
 # 업데이트된 README 내용 생성
-def update_readme(repo, sites, difficulties, problems, commit_times, original_content):
+def update_readme(repo, sites, difficulties, problems, commit_times, links, original_content):
     # "## 📑List📑" 섹션 찾기
     start_index = original_content.find("## 📑List📑")
     if start_index != -1:
@@ -58,8 +62,8 @@ def update_readme(repo, sites, difficulties, problems, commit_times, original_co
 
     # 새로운 테이블 생성
     new_table = "## 📑List📑\n\n"
-    new_table += "| 사이트 | 난이도 | 문제 | 풀이일 |\n"
-    new_table += "| --- | --- | --- | --- |\n"
+    new_table += "| 사이트 | 난이도 | 문제 | 풀이일 | 링크 |\n"
+    new_table += "| --- | --- | --- | --- | --- |\n"
 
     # 문제에 대한 정보 테이블 생성
     for i in range(len(sites)):
@@ -67,9 +71,21 @@ def update_readme(repo, sites, difficulties, problems, commit_times, original_co
         difficulty = difficulties[i]
         problem = problems[i]
         commit_time = commit_times[i]
-        new_table += f"| {site} | {difficulty} | {problem} | {commit_time} |\n"
+        link = links[i]
+        new_table += f"| {site} | {difficulty} | {problem} | {commit_time} | [링크]({link}) |\n"
 
-    updated_content = original_content + new_table
+    # 난이도와 풀이일을 기준으로 정렬 (먼저 난이도, 그다음 풀이일)
+    sorted_table = sorted(zip(sites, difficulties, problems, commit_times, links), key=lambda x: (x[1], x[3]))
+
+    # 정렬된 데이터로 새로운 테이블 생성
+    sorted_new_table = "## 📑List📑\n\n"
+    sorted_new_table += "| 사이트 | 난이도 | 문제 | 풀이일 | 링크 |\n"
+    sorted_new_table += "| --- | --- | --- | --- | --- |\n"
+    for site, difficulty, problem, commit_time, link in sorted_table:
+        sorted_new_table += f"| {site} | {difficulty} | {problem} | {commit_time} | [링크]({link}) |\n"
+
+    # 기존 내용에 새로 정렬된 표를 추가
+    updated_content = original_content + sorted_new_table
     return updated_content
 
 # 기존 README.md 내용 읽기
@@ -82,10 +98,10 @@ except FileNotFoundError:
 user_repo = "JinHyung-dev/Algorithm"
 
 # 데이터 가져오기
-sites, difficulties, problems, commit_times = get_data(user_repo)
+sites, difficulties, problems, commit_times, links = get_data(user_repo)
 
 # 리드미 업데이트
-updated_content = update_readme(user_repo, sites, difficulties, problems, commit_times, original_content)
+updated_content = update_readme(user_repo, sites, difficulties, problems, commit_times, links, original_content)
 
 # 업데이트된 내용을 리드미 파일에 저장
 with open("README.md", "w") as file:
