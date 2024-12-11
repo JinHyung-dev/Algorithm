@@ -1,16 +1,16 @@
 from datetime import datetime
 import pytz
 import requests
-import re
 
 # 한국 시간대 설정
 KST = pytz.timezone('Asia/Seoul')
 
-# 현재 시간을 한국 시간대로 가져오기
-now = datetime.now(KST)
-
-# 날짜와 시간 포맷을 'YYYY-MM-DD HH' 형식으로 변환
-current_time = now.strftime('%Y-%m-%d %H:%M')
+# 날짜와 시간 포맷을 'YYYY-MM-DD HH:mm' 형식으로 변환
+def get_kst_time(commit_time):
+    # 커밋 시간을 한국 시간대로 변환
+    utc_time = datetime.strptime(commit_time, "%Y-%m-%dT%H:%M:%SZ")
+    kst_time = utc_time.replace(tzinfo=pytz.utc).astimezone(KST)
+    return kst_time.strftime('%Y-%m-%d %H:%M')
 
 # GitHub API 응답에서 파일 목록을 처리하는 코드
 def get_data(user_repo):
@@ -22,6 +22,7 @@ def get_data(user_repo):
     sites = []
     difficulties = []
     problems = []
+    commit_times = []
 
     # 파일 경로에서 사이트, 난이도, 문제번호/이름 추출
     for item in response_data:
@@ -29,15 +30,25 @@ def get_data(user_repo):
         if len(path_parts) >= 3:
             site = path_parts[0]
             difficulty = path_parts[1]
-            problem = path_parts[2]
+            problem = path_parts[2]  # 문제 이름 전체(확장자 포함) 가져오기
             sites.append(site)
             difficulties.append(difficulty)
             problems.append(problem)
 
-    return sites, difficulties, problems
+            # 각 파일의 마지막 커밋 시간 가져오기
+            file_url = f"https://api.github.com/repos/{user_repo}/commits?path={item['path']}"
+            commit_response = requests.get(file_url)
+            commit_data = commit_response.json()
+            if commit_data:
+                commit_time = commit_data[0]['commit']['committer']['date']
+                commit_times.append(get_kst_time(commit_time))
+            else:
+                commit_times.append(current_time)  # 커밋이 없으면 현재 시간 사용
+
+    return sites, difficulties, problems, commit_times
 
 # 업데이트된 README 내용 생성
-def update_readme(repo, sites, difficulties, problems, original_content):
+def update_readme(repo, sites, difficulties, problems, commit_times, original_content):
     # "## 📑List📑" 섹션 찾기
     start_index = original_content.find("## 📑List📑")
     if start_index != -1:
@@ -51,8 +62,12 @@ def update_readme(repo, sites, difficulties, problems, original_content):
     new_table += "| --- | --- | --- | --- |\n"
 
     # 문제에 대한 정보 테이블 생성
-    for site, difficulty, problem in zip(sites, difficulties, problems):
-        new_table += f"| {site} | {difficulty} | {problem} | {current_time} |\n"
+    for i in range(len(sites)):
+        site = sites[i]
+        difficulty = difficulties[i]
+        problem = problems[i]
+        commit_time = commit_times[i]
+        new_table += f"| {site} | {difficulty} | {problem} | {commit_time} |\n"
 
     updated_content = original_content + new_table
     return updated_content
@@ -67,10 +82,10 @@ except FileNotFoundError:
 user_repo = "JinHyung-dev/Algorithm"
 
 # 데이터 가져오기
-sites, difficulties, problems = get_data(user_repo)
+sites, difficulties, problems, commit_times = get_data(user_repo)
 
 # 리드미 업데이트
-updated_content = update_readme(user_repo, sites, difficulties, problems, original_content)
+updated_content = update_readme(user_repo, sites, difficulties, problems, commit_times, original_content)
 
 # 업데이트된 내용을 리드미 파일에 저장
 with open("README.md", "w") as file:
