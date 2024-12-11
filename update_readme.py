@@ -19,9 +19,9 @@ def get_data(user_repo):
     response = requests.get(url)
     response_data = [item for item in response.json()['tree'] if item['type'] == 'blob' and not item['path'].startswith('.')]
 
-    sites = set()
-    difficulties = set()
-    problems = set()
+    sites = []
+    difficulties = []
+    problems = []
 
     # 파일 경로에서 사이트, 난이도, 문제번호/이름 추출
     for item in response_data:
@@ -29,10 +29,10 @@ def get_data(user_repo):
         if len(path_parts) >= 3:
             site = path_parts[0]
             difficulty = path_parts[1]
-            problem = path_parts[2].split('.')[0]
-            sites.add(site)
-            difficulties.add(difficulty)
-            problems.add(problem)
+            problem = path_parts[2]
+            sites.append(site)
+            difficulties.append(difficulty)
+            problems.append(problem)
 
     return sites, difficulties, problems
 
