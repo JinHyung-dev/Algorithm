@@ -25,6 +25,8 @@ def get_data(user_repo):
     commit_times = []
     links = []
 
+    seen_problems = set()  # 이미 본 문제를 추적할 set
+
     # 파일 경로에서 사이트, 난이도, 문제번호/이름 추출
     for item in response_data:
         path_parts = item['path'].split('/')
@@ -32,6 +34,12 @@ def get_data(user_repo):
             site = path_parts[0]
             difficulty = path_parts[1]
             problem = path_parts[2]  # 문제 이름 전체(확장자 포함) 가져오기
+            # 이미 본 문제는 건너뜀
+            problem_key = (site, difficulty, problem)
+            if problem_key in seen_problems:
+                continue  # 중복된 문제는 추가하지 않음
+            seen_problems.add(problem_key)
+            
             sites.append(site)
             difficulties.append(difficulty)
             problems.append(problem)
@@ -46,8 +54,11 @@ def get_data(user_repo):
             else:
                 commit_times.append(current_time)  # 커밋이 없으면 현재 시간 사용
 
-            # 각 문제에 대한 링크 추가
-            links.append(f"https://github.com/{user_repo}/blob/main/{item['path']}")
+             # README.md 링크만 추출
+            if "README.md" in item['path']:
+                links.add(f"https://github.com/{user_repo}/blob/main/{item['path']}")
+            else:
+                links.add(f"https://github.com/{user_repo}/blob/main/{item['path']}")  # 다른 파일이 있다면 그대로 추가
 
     return sites, difficulties, problems, commit_times, links
 
