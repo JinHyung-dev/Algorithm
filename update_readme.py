@@ -1,3 +1,4 @@
+import os
 from datetime import datetime
 import pytz
 import requests
@@ -14,10 +15,21 @@ def get_kst_time(commit_time):
 
 # GitHub API 응답에서 파일 목록을 처리하는 코드
 def get_data(user_repo):
+    token = os.getenv('GITHUB_TOKEN')  # GITHUB_TOKEN 환경 변수에서 토큰을 가져옵니다.
+    headers = {}
+    
+    # private 레포일 때만 Authorization 헤더 추가
+    if token:
+        headers = {'Authorization': f'token {token}'}
+    else:
+        print("Warning: GITHUB_TOKEN이 설정되지 않았습니다. Public 레포지토리에서만 작동합니다.")
+        if not is_public_repo(user_repo):
+            raise PermissionError("Private 레포지토리에서 실행하려면 GITHUB_TOKEN이 필요합니다.")
+    
     # GitHub API를 사용하여 파일 목록 가져오기
     url = f"https://api.github.com/repos/{user_repo}/git/trees/main?recursive=1"
-    response = requests.get(url)
-    response_data = [item for item in response.json()['tree'] if item['type'] == 'blob' and not item['path'].startswith('.')]
+    response = requests.get(url, headers=headers)
+    response_data = [item for item in response.json().get('tree', []) if item['type'] == 'blob' and not item['path'].startswith('.')]
 
     sites = []
     difficulties = []
@@ -46,15 +58,20 @@ def get_data(user_repo):
 
             # 각 파일의 마지막 커밋 시간 가져오기
             file_url = f"https://api.github.com/repos/{user_repo}/commits?path={item['path']}"
-            commit_response = requests.get(file_url)
+            commit_response = requests.get(file_url, headers=headers)
             commit_data = commit_response.json()
-            if commit_data:
-                commit_time = commit_data[0]['commit']['committer']['date']
-                commit_times.append(get_kst_time(commit_time))
-            else:
-                commit_times.append(current_time)  # 커밋이 없으면 현재 시간 사용
 
-             # README.md 링크만 추출
+            if commit_data:
+                commit_time = commit_data[0].get('commit', {}).get('committer', {}).get('date', None)
+                if commit_time:
+                    commit_times.append(get_kst_time(commit_time))
+                else:
+                    # 커밋 시간 정보가 없는 경우, 기본 시간을 사용
+                    commit_times.append("Unknown time")
+            else:
+                commit_times.append("No commits found")  # 커밋이 아예 없는 경우
+
+            # README.md 링크만 추출
             if "README.md" in item['path']:
                 links.append(f"https://github.com/{user_repo}/blob/main/{item['path']}")
             else:
@@ -67,9 +84,9 @@ def update_readme(repo, sites, difficulties, problems, commit_times, links, orig
     # "## 📑List📑" 섹션 찾기
     start_index = original_content.find("## 📑List📑")
     if start_index != -1:
-        # "## 📑List📑" 이후 내용을 삭제
+        # "## 📑List📑 이후의 모든 내용 삭제"
         end_index = original_content.find("\n", start_index + 1)
-        original_content = original_content[:start_index] + original_content[end_index:]
+        original_content = original_content[:start_index]  # 제목도 함께 삭제
 
     # 새로운 테이블 생성
     new_table = "## 📑List📑\n\n"
@@ -99,6 +116,7 @@ def update_readme(repo, sites, difficulties, problems, commit_times, links, orig
     updated_content = original_content + sorted_new_table
     return updated_content
 
+
 # 기존 README.md 내용 읽기
 try:
     with open("README.md", "r") as file:
@@ -106,10 +124,31 @@ try:
 except FileNotFoundError:
     original_content = ""
 
-user_repo = "JinHyung-dev/Algorithm"
+start_tag = "<!-- TEMPLATE_START -->"
+end_tag = "<!-- TEMPLATE_END -->"
+user_repo = os.getenv('GITHUB_REPOSITORY')
 
 # 데이터 가져오기
 sites, difficulties, problems, commit_times, links = get_data(user_repo)
+
+# 최초 실행 여부 확인
+if "<!-- INIT_DONE -->" not in original_content:
+    print("README 초기 설정 중...")
+
+    # 설명 삭제
+    if start_tag in original_content and end_tag in original_content:
+        start_index = original_content.find(start_tag)
+        end_index = original_content.find(end_tag) + len(end_tag)
+        original_content = original_content[:start_index] + original_content[end_index:]
+
+    # 최초 실행 완료 태그 추가
+    original_content += "\n<!-- INIT_DONE -->\n\n"
+
+    # 업데이트된 내용을 README 파일에 저장
+    with open("README.md", "w") as file:
+        file.write(original_content)
+else:
+    print("README 초기 설정 이미 완료됨.")
 
 # 리드미 업데이트
 updated_content = update_readme(user_repo, sites, difficulties, problems, commit_times, links, original_content)
