@@ -13,9 +13,17 @@ def get_kst_time(commit_time):
     kst_time = utc_time.replace(tzinfo=pytz.utc).astimezone(KST)
     return kst_time.strftime('%Y-%m-%d %H:%M')
 
+# 레포지토리가 public인지 확인하는 함수
+def is_public_repo(user_repo):
+    url = f"https://api.github.com/repos/{user_repo}"
+    response = requests.get(url)
+    if response.status_code == 200:
+        return response.json().get('private', False) == False
+    return False
+
 # GitHub API 응답에서 파일 목록을 처리하는 코드
 def get_data(user_repo):
-    token = os.getenv('GITHUB_TOKEN')  # GITHUB_TOKEN 환경 변수에서 토큰을 가져옵니다.
+    token = os.getenv('GITHUB_TOKEN')  # GITHUB_TOKEN 환경 변수에서 토큰 가져오기
     headers = {}
     
     # private 레포일 때만 Authorization 헤더 추가
