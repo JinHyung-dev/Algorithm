@@ -28,3 +28,4 @@
 | 백준 | Silver | 2563. 색종이 | 2024-12-03 12:54 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/백준/Silver/2563. 색종이/README.md) |
 | 백준 | Silver | 1018. 체스판 다시 칠하기 | 2024-12-18 16:58 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/백준/Silver/1018. 체스판 다시 칠하기/README.md) |
 | 백준 | Silver | 11866. 요세푸스 문제 0 | 2024-12-29 15:26 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/백준/Silver/11866. 요세푸스 문제 0/README.md) |
+| 백준 | Silver | 7568. 덩치 | 2025-01-08 17:02 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/백준/Silver/7568. 덩치/README.md) |
