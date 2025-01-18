@@ -10,6 +10,9 @@
 | 백준 | Bronze | 1259. 팰린드롬수 | 2024-10-31 10:50 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/백준/Bronze/1259. 팰린드롬수/README.md) |
 | 백준 | Bronze | 25305. 커트라인 | 2024-11-01 11:24 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/백준/Bronze/25305. 커트라인/README.md) |
 | 백준 | Bronze | 10817. 세 수 | 2024-11-02 13:04 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/백준/Bronze/10817. 세 수/README.md) |
+| LeetCode | Easy | 13. Roman to Integer | 2025-01-17 21:08 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Easy/13. Roman to Integer/README.md) |
+| LeetCode | Easy | 14. Longest Common Prefix | 2025-01-17 21:08 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Easy/14. Longest Common Prefix/Longest Common Prefix.java) |
+| LeetCode | Easy | 20. Valid Parentheses | 2025-01-17 21:08 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Easy/20. Valid Parentheses/README.md) |
 | 백준 | Gold | 2437. 저울 | 2024-11-06 12:58 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/백준/Gold/2437. 저울/README.md) |
 | 백준 | Silver | 2529. 부등호 | 2024-11-01 10:49 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/백준/Silver/2529. 부등호/README.md) |
 | 백준 | Silver | 11650. 좌표 정렬하기 | 2024-11-04 10:46 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/백준/Silver/11650. 좌표 정렬하기/README.md) |
