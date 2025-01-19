@@ -115,8 +115,8 @@ def update_readme(repo, sites, difficulties, problems, commit_times, links, orig
         link = links[i]
         new_table += f"| {site} | {difficulty} | {problem} | {commit_time} | [링크]({link}) |\n"
 
-    # 난이도와 풀이일을 기준으로 정렬 (먼저 난이도, 그다음 풀이일)
-    sorted_table = sorted(zip(sites, difficulties, problems, commit_times, links), key=lambda x: (x[1], x[3]))
+    # 날짜 오래된 순 정렬
+    sorted_table = sorted(zip(sites, difficulties, problems, commit_times, links), key=lambda x: x[3])
 
     # 정렬된 데이터로 새로운 테이블 생성
     sorted_new_table = "## 📑List📑\n\n"
