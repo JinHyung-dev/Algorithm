@@ -13,6 +13,9 @@
 | LeetCode | Easy | 13. Roman to Integer | 2025-01-17 21:08 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Easy/13.%20Roman%20to%20Integer/README.md) |
 | LeetCode | Easy | 14. Longest Common Prefix | 2025-01-17 21:08 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Easy/14.%20Longest%20Common%20Prefix/Longest%20Common%20Prefix.java) |
 | LeetCode | Easy | 20. Valid Parentheses | 2025-01-17 21:08 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Easy/20.%20Valid%20Parentheses/README.md) |
+| LeetCode | Easy | 125. Valid Palindrome | 2025-01-20 00:14 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Easy/125.%20Valid%20Palindrome/README.md) |
+| LeetCode | Easy | 26. Remove Duplicates from Sorted Array | 2025-01-20 00:14 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Easy/26.%20Remove%20Duplicates%20from%20Sorted%20Array/README.md) |
+| LeetCode | Easy | 88. Merge Sorted Array | 2025-01-20 00:14 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Easy/88.%20Merge%20Sorted%20Array/Merge%20Sorted%20Array.java) |
 | 백준 | Gold | 2437. 저울 | 2024-11-06 12:58 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/%EB%B0%B1%EC%A4%80/Gold/2437.%E2%80%85%EC%A0%80%EC%9A%B8/README.md) |
 | 백준 | Silver | 2529. 부등호 | 2024-11-01 10:49 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/%EB%B0%B1%EC%A4%80/Silver/2529.%E2%80%85%EB%B6%80%EB%93%B1%ED%98%B8/README.md) |
 | 백준 | Silver | 11650. 좌표 정렬하기 | 2024-11-04 10:46 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/%EB%B0%B1%EC%A4%80/Silver/11650.%E2%80%85%EC%A2%8C%ED%91%9C%E2%80%85%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B0/README.md) |
