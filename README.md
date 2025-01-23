@@ -6,6 +6,11 @@
 
 | 사이트 | 난이도 | 문제 | 풀이일 | 링크 |
 | --- | --- | --- | --- | --- |
+| LeetCode | Easy | 35. Search Insert Position | 2025-01-23 19:20 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Easy/35.%20Search%20Insert%20Position/README.md) |
+| LeetCode | Medium | 3. Longest Substring Without Repeating Characters | 2025-01-23 19:20 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Medium/3.%20Longest%20Substring%20Without%20Repeating%20Characters/Longest%20Substring%20Without%20Repeating%20Characters.java) |
+| LeetCode | Easy | 121. Best Time to Buy and Sell Stock | 2025-01-23 19:19 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Easy/121.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock/Best%20Time%20to%20Buy%20and%20Sell%20Stock.java) |
+| LeetCode | Easy | 66. Plus One | 2025-01-23 19:19 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Easy/66.%20Plus%20One/Plus%20One.java) |
+| LeetCode | Easy | 67. Add Binary | 2025-01-23 19:18 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Easy/67.%20Add%20Binary/Add%20Binary.java) |
 | LeetCode | Easy | 125. Valid Palindrome | 2025-01-20 00:14 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Easy/125.%20Valid%20Palindrome/README.md) |
 | LeetCode | Easy | 26. Remove Duplicates from Sorted Array | 2025-01-20 00:14 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Easy/26.%20Remove%20Duplicates%20from%20Sorted%20Array/README.md) |
 | LeetCode | Easy | 88. Merge Sorted Array | 2025-01-20 00:14 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Easy/88.%20Merge%20Sorted%20Array/Merge%20Sorted%20Array.java) |
