@@ -6,6 +6,7 @@
 
 | 사이트 | 난이도 | 문제 | 풀이일 | 링크 |
 | --- | --- | --- | --- | --- |
+| LeetCode | Easy | 392. Is Subsequence | 2025-03-05 13:50 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Easy/392.%20Is%20Subsequence/Is%20Subsequence.java) |
 | LeetCode | Medium | 209. Minimum Size Subarray Sum | 2025-03-04 11:34 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Medium/209.%20Minimum%20Size%20Subarray%20Sum/Minimum%20Size%20Subarray%20Sum.java) |
 | LeetCode | Easy | 35. Search Insert Position | 2025-01-23 19:20 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Easy/35.%20Search%20Insert%20Position/README.md) |
 | LeetCode | Medium | 3. Longest Substring Without Repeating Characters | 2025-01-23 19:20 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Medium/3.%20Longest%20Substring%20Without%20Repeating%20Characters/Longest%20Substring%20Without%20Repeating%20Characters.java) |
