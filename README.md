@@ -6,6 +6,7 @@
 
 | 사이트 | 난이도 | 문제 | 풀이일 | 링크 |
 | --- | --- | --- | --- | --- |
+| LeetCode | Easy | 290. Word Pattern | 2025-03-24 18:42 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Easy/290.%20Word%20Pattern/README.md) |
 | LeetCode | Easy | 169. Majority Element | 2025-03-24 16:08 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Easy/169.%20Majority%20Element/Majority%20Element.java) |
 | LeetCode | Easy | 58. Length of Last Word | 2025-03-14 11:28 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Easy/58.%20Length%20of%20Last%20Word/Length%20of%20Last%20Word.java) |
 | LeetCode | Easy | 392. Is Subsequence | 2025-03-05 13:50 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Easy/392.%20Is%20Subsequence/Is%20Subsequence.java) |
