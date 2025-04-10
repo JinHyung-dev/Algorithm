@@ -6,6 +6,7 @@
 
 | 사이트 | 난이도 | 문제 | 풀이일 | 링크 |
 | --- | --- | --- | --- | --- |
+| LeetCode | Medium | 162. Find Peak Element | 2025-04-10 13:53 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Medium/162.%20Find%20Peak%20Element/Find%20Peak%20Element.java) |
 | LeetCode | Easy | 228. Summary Ranges | 2025-03-25 21:58 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Easy/228.%20Summary%20Ranges/README.md) |
 | LeetCode | Easy | 290. Word Pattern | 2025-03-24 18:42 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Easy/290.%20Word%20Pattern/README.md) |
 | LeetCode | Easy | 169. Majority Element | 2025-03-24 16:08 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Easy/169.%20Majority%20Element/Majority%20Element.java) |
