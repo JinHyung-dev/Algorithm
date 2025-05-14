@@ -6,6 +6,7 @@
 
 | 사이트 | 난이도 | 문제 | 풀이일 | 링크 |
 | --- | --- | --- | --- | --- |
+| 백준 | Silver | 11656. 접미사 배열 | 2025-05-14 16:59 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/%EB%B0%B1%EC%A4%80/Silver/11656.%E2%80%85%EC%A0%91%EB%AF%B8%EC%82%AC%E2%80%85%EB%B0%B0%EC%97%B4/README.md) |
 | LeetCode | Medium | 162. Find Peak Element | 2025-04-10 13:53 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Medium/162.%20Find%20Peak%20Element/Find%20Peak%20Element.java) |
 | LeetCode | Easy | 228. Summary Ranges | 2025-03-25 21:58 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Easy/228.%20Summary%20Ranges/README.md) |
 | LeetCode | Easy | 290. Word Pattern | 2025-03-24 18:42 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Easy/290.%20Word%20Pattern/README.md) |
