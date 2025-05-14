@@ -6,6 +6,7 @@
 
 | 사이트 | 난이도 | 문제 | 풀이일 | 링크 |
 | --- | --- | --- | --- | --- |
+| 백준 | Bronze | 10988. 팰린드롬인지 확인하기 | 2025-05-14 17:16 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/%EB%B0%B1%EC%A4%80/Bronze/10988.%E2%80%85%ED%8C%B0%EB%A6%B0%EB%93%9C%EB%A1%AC%EC%9D%B8%EC%A7%80%E2%80%85%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0/README.md) |
 | 백준 | Silver | 11656. 접미사 배열 | 2025-05-14 16:59 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/%EB%B0%B1%EC%A4%80/Silver/11656.%E2%80%85%EC%A0%91%EB%AF%B8%EC%82%AC%E2%80%85%EB%B0%B0%EC%97%B4/README.md) |
 | LeetCode | Medium | 162. Find Peak Element | 2025-04-10 13:53 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Medium/162.%20Find%20Peak%20Element/Find%20Peak%20Element.java) |
 | LeetCode | Easy | 228. Summary Ranges | 2025-03-25 21:58 | [링크](https://github.com/JinHyung-dev/Algorithm/blob/main/LeetCode/Easy/228.%20Summary%20Ranges/README.md) |
